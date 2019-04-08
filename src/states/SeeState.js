@@ -11,6 +11,14 @@ class SeeState extends Phaser.State {
 		this.entry.alpha = 0;
 		this.game.add.tween(this.entry).to( { alpha: 1 }, 1000, "Linear", true);
 
+		this.hitZone = this.game.add.graphics(0,0);
+    	this.hitZone.beginFill(0xFF0000);
+		this.hitZone.drawRect(1440, 430, 100, 60);
+		this.hitZone.alpha = 0;
+		this.hitZone.inputEnabled = true;
+		this.hitZone.input.useHandCursor = true;
+		this.hitZone.events.onInputDown.add(this.onClick, this);
+
 		this.clicked = false;
 		this.entry.inputEnabled = true;
 		this.entry.events.onInputDown.add(this.onClick, this);

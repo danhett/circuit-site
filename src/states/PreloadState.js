@@ -99,6 +99,7 @@ class PreloadState extends Phaser.State {
 		this.game.load.image('btn3', 'assets/circuit/btn3.png');
 		this.game.load.image('btn4', 'assets/circuit/btn4.png');
 		this.game.load.image('back-btn', 'assets/circuit/back.png');
+		this.game.load.image('back-btn2', 'assets/circuit/back2.png');
 		this.game.load.image('who-btn', 'assets/circuit/who.png');
 		this.game.load.image('see-btn', 'assets/circuit/see.png');
 		this.game.load.image('who-screen', 'assets/circuit/whomadethis.png');

@@ -45,7 +45,7 @@ class CircuitState extends Phaser.State {
 
 		this.full = this.game.add.graphics(0,0);
     	this.full.beginFill(0xFF0000);
-		this.full.drawRect(1470, 0, 130, 130);
+		this.full.drawRect(1470, 680, 130, 130);
 		this.full.alpha = 0;
 		this.full.inputEnabled = true;
 		this.full.events.onInputDown.add(this.toggleFullScreen, this);
