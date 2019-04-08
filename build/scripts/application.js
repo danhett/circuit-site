@@ -22898,7 +22898,7 @@ var EntryState = function (_Phaser$State) {
 		value: function onClickBack() {
 			if (!this.clicked) {
 				this.clicked = true;
-				this.game.add.tween(this.back).to({ x: -200 }, 1000, "Cubic", true, 500);
+				this.game.add.tween(this.back).to({ alpha: 0 }, 1000, "Cubic", true);
 				var fadeout = this.game.add.tween(this.entry).to({ alpha: 0 }, 1000, "Linear", true);
 				fadeout.onComplete.add(this.moveScenesBack, this);
 			}
@@ -22919,7 +22919,7 @@ var EntryState = function (_Phaser$State) {
 
 			if (!this.clicked) {
 				this.clicked = true;
-				this.game.add.tween(this.back).to({ x: -200 }, 1000, "Cubic", true, 500);
+				this.game.add.tween(this.back).to({ alpha: 0 }, 1000, "Cubic", true);
 				var fadeout = this.game.add.tween(this.entry).to({ alpha: 0 }, 1000, "Linear", true);
 				fadeout.onComplete.add(this.moveScenes, this);
 			}
@@ -23484,7 +23484,7 @@ var SeeState = function (_Phaser$State) {
 			this.hitZone.alpha = 0;
 			this.hitZone.inputEnabled = true;
 			this.hitZone.input.useHandCursor = true;
-			this.hitZone.events.onInputDown.add(this.onClick, this);
+			this.hitZone.events.onInputDown.add(this.link1, this);
 
 			this.clicked = false;
 			this.entry.inputEnabled = true;
@@ -23493,12 +23493,16 @@ var SeeState = function (_Phaser$State) {
 	}, {
 		key: "onClick",
 		value: function onClick() {
-
 			if (!this.clicked) {
 				this.clicked = true;
 				var fadeout = this.game.add.tween(this.entry).to({ alpha: 0 }, 1000, "Linear", true);
 				fadeout.onComplete.add(this.moveScenes, this);
 			}
+		}
+	}, {
+		key: "link1",
+		value: function link1() {
+			window.open("https://www.kettlesyard.co.uk/events/artist-rooms-louise-bourgeois", '_blank');
 		}
 	}, {
 		key: "moveScenes",
@@ -23572,14 +23576,65 @@ var WhoState = function (_Phaser$State) {
 			this.entry.alpha = 0;
 			this.game.add.tween(this.entry).to({ alpha: 1 }, 1000, "Linear", true);
 
+			this.hit1 = this.game.add.graphics(0, 0);
+			this.hit1.beginFill(0xFF0000);
+			this.hit1.drawRect(1048, 236, 200, 60);
+			this.hit1.alpha = 0;
+			this.hit1.inputEnabled = true;
+			this.hit1.input.useHandCursor = true;
+			this.hit1.events.onInputDown.add(this.link1, this);
+
+			this.hit2 = this.game.add.graphics(0, 0);
+			this.hit2.beginFill(0xFF0000);
+			this.hit2.drawRect(1260, 236, 230, 60);
+			this.hit2.alpha = 0;
+			this.hit2.inputEnabled = true;
+			this.hit2.input.useHandCursor = true;
+			this.hit2.events.onInputDown.add(this.link2, this);
+
+			this.hit3 = this.game.add.graphics(0, 0);
+			this.hit3.beginFill(0xFF0000);
+			this.hit3.drawRect(360, 353, 440, 60);
+			this.hit3.alpha = 0;
+			this.hit3.inputEnabled = true;
+			this.hit3.input.useHandCursor = true;
+			this.hit3.events.onInputDown.add(this.link3, this);
+
+			this.hit4 = this.game.add.graphics(0, 0);
+			this.hit4.beginFill(0xFF0000);
+			this.hit4.drawRect(824, 353, 200, 60);
+			this.hit4.alpha = 0;
+			this.hit4.inputEnabled = true;
+			this.hit4.input.useHandCursor = true;
+			this.hit4.events.onInputDown.add(this.link4, this);
+
 			this.clicked = false;
 			this.entry.inputEnabled = true;
 			this.entry.events.onInputDown.add(this.onClick, this);
 		}
 	}, {
+		key: "link1",
+		value: function link1() {
+			window.open("https://www.kettlesyard.co.uk", '_blank');
+		}
+	}, {
+		key: "link2",
+		value: function link2() {
+			window.open("http://wysingartscentre.org/", '_blank');
+		}
+	}, {
+		key: "link3",
+		value: function link3() {
+			window.open("http://kettlesyard.co.uk/circuit", '_blank');
+		}
+	}, {
+		key: "link4",
+		value: function link4() {
+			window.open("https://twitter.com/circuitcambs", '_blank');
+		}
+	}, {
 		key: "onClick",
 		value: function onClick() {
-
 			if (!this.clicked) {
 				this.clicked = true;
 				var fadeout = this.game.add.tween(this.entry).to({ alpha: 0 }, 1000, "Linear", true);

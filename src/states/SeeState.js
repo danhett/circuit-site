@@ -17,7 +17,7 @@ class SeeState extends Phaser.State {
 		this.hitZone.alpha = 0;
 		this.hitZone.inputEnabled = true;
 		this.hitZone.input.useHandCursor = true;
-		this.hitZone.events.onInputDown.add(this.onClick, this);
+		this.hitZone.events.onInputDown.add(this.link1, this);
 
 		this.clicked = false;
 		this.entry.inputEnabled = true;
@@ -25,12 +25,15 @@ class SeeState extends Phaser.State {
 	}
 
 	onClick() {
-
 		if(!this.clicked) {
 			this.clicked = true;
 			var fadeout = this.game.add.tween(this.entry).to( { alpha: 0 }, 1000, "Linear", true);
 			fadeout.onComplete.add(this.moveScenes, this);
 		}
+	}
+
+	link1() {
+		window.open("https://www.kettlesyard.co.uk/events/artist-rooms-louise-bourgeois", '_blank');
 	}
 
 	moveScenes() {

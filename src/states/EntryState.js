@@ -25,7 +25,7 @@ class EntryState extends Phaser.State {
 	onClickBack() {
 		if(!this.clicked) {
 			this.clicked = true;
-			this.game.add.tween(this.back).to( { x: -200 }, 1000, "Cubic", true, 500);
+			this.game.add.tween(this.back).to( { alpha:0 }, 1000, "Cubic", true);
 			var fadeout = this.game.add.tween(this.entry).to( { alpha: 0 }, 1000, "Linear", true);
 			fadeout.onComplete.add(this.moveScenesBack, this);
 		}
@@ -43,7 +43,7 @@ class EntryState extends Phaser.State {
 
 		if(!this.clicked) {
 			this.clicked = true;
-			this.game.add.tween(this.back).to( { x: -200 }, 1000, "Cubic", true, 500);
+			this.game.add.tween(this.back).to( { alpha:0 }, 1000, "Cubic", true);
 			var fadeout = this.game.add.tween(this.entry).to( { alpha: 0 }, 1000, "Linear", true);
 			fadeout.onComplete.add(this.moveScenes, this);
 		}
