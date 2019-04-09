@@ -15,16 +15,16 @@ class MenuState extends Phaser.State {
 		this.who.events.onInputDown.add(this.openWho, this);
 		this.game.add.tween(this.who).to( { x: 1174 }, 1000, "Cubic", true, 1500);
 
-		this.see = this.add.sprite(60, 26, "see-btn");
-		this.see.x = -200;
+		this.see = this.add.sprite(1600, 100, "see-btn");
+		//this.see.scale.set(0.9, 0.9);
 		this.see.inputEnabled = true;
 		this.see.events.onInputDown.add(this.openSee, this);
-		this.game.add.tween(this.see).to( { x: 60 }, 1000, "Cubic", true, 1500);
+		this.game.add.tween(this.see).to( { x: 1410 }, 1000, "Cubic", true, 1500);
 
-		this.btn1 = this.add.sprite(-1000, 170, "btn1");
-		this.btn2 = this.add.sprite(-1000, 300, "btn2");
-		this.btn3 = this.add.sprite(-1000, 430, "btn3");
-		this.btn4 = this.add.sprite(-1000, 560, "btn4");
+		this.btn1 = this.add.sprite(-1000, 200, "btn1");
+		this.btn2 = this.add.sprite(-1000, 330, "btn2");
+		this.btn3 = this.add.sprite(-1000, 460, "btn3");
+		this.btn4 = this.add.sprite(-1000, 590, "btn4");
 
 		this.drawPlayerBar();
 
@@ -36,6 +36,12 @@ class MenuState extends Phaser.State {
 		this.back = this.add.sprite(-250, 20, "back-btn");
 		this.back.inputEnabled = true;
 		this.back.events.onInputDown.add(this.hideBar, this);
+
+		this.mainBack = this.add.sprite(-250, 20, "back-btn2");
+		this.mainBack.scale.set(0.7, 0.7);
+		this.mainBack.inputEnabled = true;
+		this.mainBack.events.onInputDown.add(this.openBack, this);
+		this.game.add.tween(this.mainBack).to( { x: 20 }, 1000, "Cubic", true, 1500);
 
 		this.btn1.inputEnabled = true;
 		this.btn1.events.onInputDown.add(this.play1, this);
@@ -120,7 +126,8 @@ class MenuState extends Phaser.State {
 		this.game.add.tween(this.btn3).to( { x: -1000 }, 1000, "Cubic", true, 300);
 		this.game.add.tween(this.btn4).to( { x: -1000 }, 1000, "Cubic", true, 400);
 		this.game.add.tween(this.who).to( { x: 1600 }, 1000, "Cubic", true, 100);
-		this.game.add.tween(this.see).to( { x: -200 }, 1000, "Cubic", true, 100);
+		this.game.add.tween(this.see).to( { x: 1600 }, 1000, "Cubic", true, 100);
+		this.game.add.tween(this.mainBack).to( { x: -200 }, 1000, "Cubic", true, 100);
 
 		this.game.add.tween(this.barFill).to( { y: this.game.height/2 - 75 }, 1000, "Cubic", true, 800);
 		this.game.add.tween(this.barBase).to( { y: this.game.height/2 - 75 }, 1000, "Cubic", true, 800);
@@ -139,7 +146,9 @@ class MenuState extends Phaser.State {
 		this.game.add.tween(this.btn3).to( { x: 310 }, 1000, "Cubic", true, 700);
 		this.game.add.tween(this.btn4).to( { x: 310 }, 1000, "Cubic", true, 800);
 		this.game.add.tween(this.who).to( { x: 1174 }, 1000, "Cubic", true, 100);
-		this.game.add.tween(this.see).to( { x: 60 }, 1000, "Cubic", true, 100);
+		this.game.add.tween(this.see).to( { x: 1410 }, 1000, "Cubic", true, 100);
+		this.game.add.tween(this.mainBack).to( { x: 20 }, 1000, "Cubic", true, 500);
+
 
 		this.game.add.tween(this.back).to( { x: -250 }, 1000, "Cubic", true, 100);
 
@@ -164,7 +173,8 @@ class MenuState extends Phaser.State {
 			this.game.add.tween(this.btn3).to( { x: -1000 }, 1000, "Cubic", true, 300);
 			this.game.add.tween(this.btn4).to( { x: -1000 }, 1000, "Cubic", true, 400);
 			this.game.add.tween(this.who).to( { x: 1600 }, 1000, "Cubic", true, 100);
-			this.game.add.tween(this.see).to( { x: -200 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.see).to( { x: 1600 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.mainBack).to( { x: -200 }, 1000, "Cubic", true, 100);
 
 			this.game.time.events.add(Phaser.Timer.SECOND * 1, this.openPop, this);
 		}
@@ -175,13 +185,14 @@ class MenuState extends Phaser.State {
 	}
 
 	openSee() {
-		if(this.see.x == 60) { // heh
+		if(this.see.x == 1410) { // heh
 			this.game.add.tween(this.btn1).to( { x: -1000 }, 1000, "Cubic", true, 100);
 			this.game.add.tween(this.btn2).to( { x: -1000 }, 1000, "Cubic", true, 200);
 			this.game.add.tween(this.btn3).to( { x: -1000 }, 1000, "Cubic", true, 300);
 			this.game.add.tween(this.btn4).to( { x: -1000 }, 1000, "Cubic", true, 400);
 			this.game.add.tween(this.who).to( { x: 1600 }, 1000, "Cubic", true, 100);
-			this.game.add.tween(this.see).to( { x: -200 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.see).to( { x: 1600 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.mainBack).to( { x: -200 }, 1000, "Cubic", true, 100);
 
 			this.game.time.events.add(Phaser.Timer.SECOND * 1, this.openSeePop, this);
 		}
@@ -189,6 +200,25 @@ class MenuState extends Phaser.State {
 
 	openSeePop() {
 		this.state.start('SeeState');
+	}
+
+
+	openBack() {
+		if(this.see.x == 1410) { // heh
+			this.game.add.tween(this.btn1).to( { x: -1000 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.btn2).to( { x: -1000 }, 1000, "Cubic", true, 200);
+			this.game.add.tween(this.btn3).to( { x: -1000 }, 1000, "Cubic", true, 300);
+			this.game.add.tween(this.btn4).to( { x: -1000 }, 1000, "Cubic", true, 400);
+			this.game.add.tween(this.who).to( { x: 1600 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.see).to( { x: 1600 }, 1000, "Cubic", true, 100);
+			this.game.add.tween(this.mainBack).to( { x: -200 }, 1000, "Cubic", true, 100);
+
+			this.game.time.events.add(Phaser.Timer.SECOND * 1, this.openBackPage, this);
+		}
+	}
+
+	openBackPage() {
+		this.state.start('EntryState');
 	}
 
 
