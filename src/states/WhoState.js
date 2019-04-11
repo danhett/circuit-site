@@ -29,7 +29,7 @@ class WhoState extends Phaser.State {
 
 		this.hit3 = this.game.add.graphics(0,0);
     	this.hit3.beginFill(0xFF0000);
-		this.hit3.drawRect(360, 353, 440, 60);
+		this.hit3.drawRect(360, 353, 300, 60);
 		this.hit3.alpha = 0;
 		this.hit3.inputEnabled = true;
 		this.hit3.input.useHandCursor = true;
@@ -37,7 +37,7 @@ class WhoState extends Phaser.State {
 
 		this.hit4 = this.game.add.graphics(0,0);
     	this.hit4.beginFill(0xFF0000);
-		this.hit4.drawRect(824, 353, 200, 60);
+		this.hit4.drawRect(690, 353, 200, 60);
 		this.hit4.alpha = 0;
 		this.hit4.inputEnabled = true;
 		this.hit4.input.useHandCursor = true;
